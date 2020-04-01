@@ -1,0 +1,32 @@
+*{
+	margin:0px;
+	padding: 0px;
+}
+.main_container{
+	background-color: #F0F2F5;
+	min-height: 90vh;
+}
+.navbar{
+	-webkit-box-shadow: 10px 10px 39px -21px rgba(0,0,0,0.75);
+	-moz-box-shadow: 10px 10px 39px -21px rgba(0,0,0,0.75);
+	box-shadow: 10px 10px 39px -21px rgba(0,0,0,0.75);
+	border-bottom: 1px solid lightgrey;
+}
+
+
+.footer {
+  	position: fixed;
+  	left: 0;
+  	bottom: 0;
+  	width: 100%;
+  	text-align: center;
+  	padding-top: 5px;
+  	box-shadow: 39px 10px 10px -21px rgba(0,0,0,0.75);
+	background-color: white;
+	color: black;
+	border-top: 1px solid lightgrey;
+}
+.formulario_modal{
+	padding: 4% 10%;
+
+}

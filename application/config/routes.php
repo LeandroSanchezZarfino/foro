@@ -52,7 +52,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 $route['default_controller'] = 'PrincipalController';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
-$route['login']["POST"] = "LoginController/autenticar";
+$route['acreditar']["POST"] = "LoginController/acreditar";
 $route['registrar']["POST"] = "LoginController/registrar";
 $route['abmPublicacion']["POST"] = "PublicaciónController/abmPublicacion";
 

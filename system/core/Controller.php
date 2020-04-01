@@ -100,4 +100,10 @@ class CI_Controller {
 		return self::$instance;
 	}
 
+	public function response($codigo,$respuesta){
+		$arr = array('message' => $respuesta); //etc
+		header('HTTP/1.1 '.$codigo);
+		echo json_encode($arr);
+	}
+
 }
