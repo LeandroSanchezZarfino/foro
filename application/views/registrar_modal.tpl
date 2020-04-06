@@ -7,7 +7,7 @@
         <span aria-hidden="true">&times;</span>
         </button>
       </div>
-      <form class="formulario_modal" action="registrar" method="post">
+      <form class="formulario_modal" id="formRegister" action="registrar" method="post">
         <div class="form-group">
           <div class="input-group mb-3">
             <div class="input-group-prepend">
@@ -49,6 +49,9 @@
           </div>
         </div>
         <hr>
+        <div class="form-group">
+          <p id="text_error_registar" class="text-error"></p>
+        </div>
         <div class="form-group" style="text-align: center;">
           <button class="btn btn-primary">Confirmar Datos</button>
         </div>
@@ -59,7 +62,7 @@
 
 
 <script type="text/javascript">
-  $("#modalLoginForm").submit(function( event ) {
+  $("#formRegister").submit(function( event ) {
     event.preventDefault();
     var form = $(this);
     $.ajax({
@@ -68,11 +71,15 @@
       data: form.serialize(), // serializes the form's elements.
       success: function(data)
       {
-        console.log(data);
-        //location.reload();
+        location.reload();
       },
       error:function(response){
-        console.log(response);
+        try{
+          var respuesta = JSON.parse(response.responseText).message;
+          $("#text_error_registar").text(respuesta);
+        }catch{
+          $("#text_error_registar").text("Usuario existente, intente con otro");
+        }
       }
      });
   });

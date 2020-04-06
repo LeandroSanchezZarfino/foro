@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.30, created on 2020-04-01 08:04:29
+/* Smarty version 3.1.30, created on 2020-04-06 18:40:19
   from "C:\xampp72\htdocs\foro\application\views\template\header.tpl" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.30',
-  'unifunc' => 'content_5e842eed505e62_84166645',
+  'unifunc' => 'content_5e8b5b7365def4_51153298',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '33383aaeb1a466b26de6d33dacdf31cc05121775' => 
     array (
       0 => 'C:\\xampp72\\htdocs\\foro\\application\\views\\template\\header.tpl',
-      1 => 1585523038,
+      1 => 1586189154,
       2 => 'file',
     ),
   ),
@@ -21,7 +21,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:template/includes.tpl' => 1,
   ),
 ),false)) {
-function content_5e842eed505e62_84166645 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5e8b5b7365def4_51153298 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
 <!DOCTYPE html>
 <html>
@@ -33,19 +33,30 @@ function content_5e842eed505e62_84166645 (Smarty_Internal_Template $_smarty_tpl)
 	</head>
 	<body>
 		<nav class="navbar navbar-expand-lg">
-			<a class="navbar-brand" href="javascript:void(0)">Inicio</a>
+			<a class="navbar-brand" href="<?php echo base_url();?>
+">Inicio</a>
 			<button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navb">
 			<span class="navbar-toggler-icon"><i class="fa fa-bars"></i></span>
 			</button>
 			<div class="collapse navbar-collapse" id="navb">
 				<?php if (isset($_smarty_tpl->tpl_vars['session_id']->value)) {?>
 				<ul class="navbar-nav mr-auto">
-					<li class="nav-item">
+					<!--<li class="nav-item">
 						<a class="nav-link" href="javascript:void(0)">Mi Perfil</a>
+					</li>-->
+					<li class="nav-item">
+						<a class="nav-link" href="javascript:nuevaPublicacion()" >Nueva Publicación</a>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link" href="javascript:void(0)">Mis Publicaciones</a>
+						<a class="nav-link" href="<?php echo base_url();?>
+misPublicaciones">Mis Publicaciones</a>
 					</li>
+					<?php if ($_smarty_tpl->tpl_vars['perfil']->value == 1) {?>
+						<li class="nav-item">
+							<a href="<?php echo base_url();?>
+validarPublicaciones" class="nav-link">Publicaciones Pendientes</a>
+						</li>
+					<?php }?>
 				</ul>
 				<?php } else { ?>
 				<ul class="navbar-nav mr-auto">
@@ -57,10 +68,19 @@ function content_5e842eed505e62_84166645 (Smarty_Internal_Template $_smarty_tpl)
 					</li>
 				</ul>
 				<?php }?>
-				<form class="form-inline my-2 my-lg-0">
-					<input class="form-control mr-sm-2" type="text" placeholder="...">
-					<button class="btn btn-primary my-2 my-sm-0" type="button">Buscar</button>
+				<form class="form-inline my-2 my-lg-0" style="align-self: center;" action="busquedaPublicaciones" method="GET">
+					<input class="form-control mr-sm-2" type="text" placeholder="..." name="parametro">
+					<button class="btn btn-primary my-2 my-sm-0" type="submit">Buscar</button>
 				</form>
+				<?php if (isset($_smarty_tpl->tpl_vars['session_id']->value)) {?>
+
+				<ul class="navbar-nav">
+					<li class="nav-item">
+						<a href="<?php echo base_url();?>
+logout" style="margin-left: 80px;" class="nav-link"><i class="fa fa-sign-out"></i></a>
+					</li>
+				</ul>
+				<?php }?>
 			</div>
 		</nav>
 		<div class="main_container">

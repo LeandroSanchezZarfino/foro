@@ -30,4 +30,10 @@ class Mongo_model extends CI_Model {
 		$bulk->delete($criterio, ['limit' => $cantidad]);
 		$result = $this->conn->executeBulkWrite($this->database.'.'.$coleccion, $bulk);
 	}
+
+	public function insertInArray($coleccion,$data,$criterio = array() ,$upsert = true,$multi = false){
+		$bulk = new MongoDB\Driver\BulkWrite;
+		$bulk->update($criterio,['$push' => $data],['multi' => $multi, 'upsert' => $upsert]);
+		$result = $this->conn->executeBulkWrite($this->database.'.'.$coleccion, $bulk);
+	}
 }

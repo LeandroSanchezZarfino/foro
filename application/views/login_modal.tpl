@@ -7,7 +7,7 @@
         <span aria-hidden="true">&times;</span>
         </button>
       </div>
-      <form class="formulario_modal" action="{base_url()}acreditar" method="post">
+      <form class="formulario_modal" id="formLogin" action="{base_url()}acreditar" method="post">
         <div class="form-group">
           <div class="input-group mb-3">
             <div class="input-group-prepend">
@@ -15,7 +15,7 @@
                 <i class="fa fa-envelope"></i>
               </span>
             </div>
-            <input type="email" name="usuario" placeholder="Usuario" class="form-control">
+            <input type="text" name="usuario" placeholder="Usuario" class="form-control">
           </div>
         </div>
         <div class="form-group">
@@ -29,6 +29,9 @@
           </div>
         </div>
         <hr>
+        <div class="form-group">
+          <p id="text_error_login" class="text-error"></p>
+        </div>
         <div class="form-group" style="text-align: center;">
           <button class="btn btn-primary">Iniciar Sesión</button>
         </div>
@@ -39,7 +42,7 @@
 
 
 <script type="text/javascript">
-  $("#modalLoginForm").submit(function( event ) {
+  $("#formLogin").submit(function( event ) {
     event.preventDefault();
     var form = $(this);
     $.ajax({
@@ -48,11 +51,11 @@
       data: form.serialize(), // serializes the form's elements.
       success: function(data)
       {
-        console.log(data);
-        //location.reload();
+        location.reload();
       },
       error:function(response){
-        console.log(response);
+          var respuesta = JSON.parse(response.responseText).message;
+          $("#text_error_login").text(respuesta);
       }
      });
   });

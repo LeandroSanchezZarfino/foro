@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.30, created on 2020-04-01 08:04:29
+/* Smarty version 3.1.30, created on 2020-04-06 18:40:19
   from "C:\xampp72\htdocs\foro\application\views\login_modal.tpl" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.30',
-  'unifunc' => 'content_5e842eed5d53f1_96269207',
+  'unifunc' => 'content_5e8b5b7378ec37_26554727',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'af75a5545b937b8b6e3452a815621ec504916e7f' => 
     array (
       0 => 'C:\\xampp72\\htdocs\\foro\\application\\views\\login_modal.tpl',
-      1 => 1585616016,
+      1 => 1586065075,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5e842eed5d53f1_96269207 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5e8b5b7378ec37_26554727 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
 <div class="modal fade" id="modalLoginForm" tabindex="-1" role="dialog" aria-hidden="true">
   <div class="modal-dialog" role="document">
@@ -31,7 +31,7 @@ function content_5e842eed5d53f1_96269207 (Smarty_Internal_Template $_smarty_tpl)
         <span aria-hidden="true">&times;</span>
         </button>
       </div>
-      <form class="formulario_modal" action="<?php echo base_url();?>
+      <form class="formulario_modal" id="formLogin" action="<?php echo base_url();?>
 acreditar" method="post">
         <div class="form-group">
           <div class="input-group mb-3">
@@ -40,7 +40,7 @@ acreditar" method="post">
                 <i class="fa fa-envelope"></i>
               </span>
             </div>
-            <input type="email" name="usuario" placeholder="Usuario" class="form-control">
+            <input type="text" name="usuario" placeholder="Usuario" class="form-control">
           </div>
         </div>
         <div class="form-group">
@@ -54,6 +54,9 @@ acreditar" method="post">
           </div>
         </div>
         <hr>
+        <div class="form-group">
+          <p id="text_error_login" class="text-error"></p>
+        </div>
         <div class="form-group" style="text-align: center;">
           <button class="btn btn-primary">Iniciar Sesión</button>
         </div>
@@ -65,7 +68,7 @@ acreditar" method="post">
 
 <?php echo '<script'; ?>
  type="text/javascript">
-  $("#modalLoginForm").submit(function( event ) {
+  $("#formLogin").submit(function( event ) {
     event.preventDefault();
     var form = $(this);
     $.ajax({
@@ -74,11 +77,11 @@ acreditar" method="post">
       data: form.serialize(), // serializes the form's elements.
       success: function(data)
       {
-        console.log(data);
-        //location.reload();
+        location.reload();
       },
       error:function(response){
-        console.log(response);
+          var respuesta = JSON.parse(response.responseText).message;
+          $("#text_error_login").text(respuesta);
       }
      });
   });

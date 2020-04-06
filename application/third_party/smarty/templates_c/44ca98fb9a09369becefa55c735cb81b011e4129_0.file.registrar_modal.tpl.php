@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.30, created on 2020-04-01 08:04:29
+/* Smarty version 3.1.30, created on 2020-04-06 18:40:19
   from "C:\xampp72\htdocs\foro\application\views\registrar_modal.tpl" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.30',
-  'unifunc' => 'content_5e842eed60c3b9_35522366',
+  'unifunc' => 'content_5e8b5b737c8400_33761050',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '44ca98fb9a09369becefa55c735cb81b011e4129' => 
     array (
       0 => 'C:\\xampp72\\htdocs\\foro\\application\\views\\registrar_modal.tpl',
-      1 => 1585720768,
+      1 => 1585939250,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5e842eed60c3b9_35522366 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5e8b5b737c8400_33761050 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
 <div class="modal fade" id="modalRegisterForm" tabindex="-1" role="dialog" aria-hidden="true">
   <div class="modal-dialog" role="document">
@@ -31,7 +31,7 @@ function content_5e842eed60c3b9_35522366 (Smarty_Internal_Template $_smarty_tpl)
         <span aria-hidden="true">&times;</span>
         </button>
       </div>
-      <form class="formulario_modal" action="registrar" method="post">
+      <form class="formulario_modal" id="formRegister" action="registrar" method="post">
         <div class="form-group">
           <div class="input-group mb-3">
             <div class="input-group-prepend">
@@ -73,6 +73,9 @@ function content_5e842eed60c3b9_35522366 (Smarty_Internal_Template $_smarty_tpl)
           </div>
         </div>
         <hr>
+        <div class="form-group">
+          <p id="text_error_registar" class="text-error"></p>
+        </div>
         <div class="form-group" style="text-align: center;">
           <button class="btn btn-primary">Confirmar Datos</button>
         </div>
@@ -84,20 +87,24 @@ function content_5e842eed60c3b9_35522366 (Smarty_Internal_Template $_smarty_tpl)
 
 <?php echo '<script'; ?>
  type="text/javascript">
-  $("#modalLoginForm").submit(function( event ) {
+  $("#formRegister").submit(function( event ) {
     event.preventDefault();
     var form = $(this);
     $.ajax({
       type: "POST",
-      url: "acreditar",
+      url: "registrar",
       data: form.serialize(), // serializes the form's elements.
       success: function(data)
       {
-        console.log(data);
-        //location.reload();
+        location.reload();
       },
       error:function(response){
-        console.log(response);
+        try{
+          var respuesta = JSON.parse(response.responseText).message;
+          $("#text_error_registar").text(respuesta);
+        }catch{
+          $("#text_error_registar").text("Usuario existente, intente con otro");
+        }
       }
      });
   });

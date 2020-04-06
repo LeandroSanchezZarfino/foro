@@ -1,6 +1,13 @@
 *{
 	margin:0px;
 	padding: 0px;
+    font-family: 'Roboto';
+}
+.container{
+	padding: 1%;
+}
+.espaciado{
+	margin:1% 0%;
 }
 .main_container{
 	background-color: #F0F2F5;
@@ -12,8 +19,27 @@
 	box-shadow: 10px 10px 39px -21px rgba(0,0,0,0.75);
 	border-bottom: 1px solid lightgrey;
 }
+.margen{
+	margin: 3%;
+}
+.padding{
+	padding:3%;
+}
+.centrado{
+	text-align: center;
+	align-self: center;
+	align-content: center;
+}
+.publicacion{
+	border: 1px solid lightgrey;
+    padding: 5px;
+    border-radius: 5px;
+    margin-top: 15px;
+    text-align: center;
+    background-color: white;
+    box-shadow: 0 6px 8px rgba(102,119,136,0.03), 0 1px 2px rgba(102,119,136,0.3);
 
-
+}
 .footer {
   	position: fixed;
   	left: 0;
@@ -30,3 +56,24 @@
 	padding: 4% 10%;
 
 }
+
+.imagen{
+	max-width: 100%;
+	max-height: 100%;
+}
+.float-button{
+	position: relative;
+	top:5px;
+	right: 5px;
+}
+.nav-link{
+	border-radius: 5px;
+}
+
+.nav-link:hover{
+	background-color: #F0F2F5;
+}
+.inline{
+	display: inline-block;
+}
+

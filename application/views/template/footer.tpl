@@ -8,3 +8,6 @@
 
 {include file="login_modal.tpl"}
 {include file="registrar_modal.tpl"}
+{include file="publicacion_modal.tpl"}
+{include file="modal_mensaje.tpl"}
+

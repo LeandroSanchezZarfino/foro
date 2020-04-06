@@ -50,11 +50,24 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 |		my-controller/my-method	-> my_controller/my_method
 */
 $route['default_controller'] = 'PrincipalController';
+$route['misPublicaciones'] = 'PrincipalController/misPublicaciones';
+$route['busquedaPublicaciones'] = 'PrincipalController/busquedaPublicaciones';
+
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
 $route['acreditar']["POST"] = "LoginController/acreditar";
 $route['registrar']["POST"] = "LoginController/registrar";
-$route['abmPublicacion']["POST"] = "PublicaciónController/abmPublicacion";
+
+$route['logout'] = "LoginController/logout";
+$route['abmPublicacion'] = "PublicacionController/abmPublicacion";
+$route['getPublicacion'] = "PublicacionController/getPublicacion";
+$route['validarPublicaciones'] = "PublicacionController/validar";
+
+$route["aceptarPublicacion/(:any)"] = "PublicacionController/aceptar/$1";
+$route["rechazarPublicacion/(:any)"] = "PublicacionController/rechazar/$1";
+
+$route['enviarComentario'] = "PublicacionController/enviarComentario";
+$route['darLike'] = "PublicacionController/darLike";
 
 
 
