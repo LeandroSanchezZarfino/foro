@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.30, created on 2020-04-06 18:40:19
+/* Smarty version 3.1.30, created on 2020-04-08 08:11:00
   from "C:\xampp72\htdocs\foro\application\views\principal.tpl" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.30',
-  'unifunc' => 'content_5e8b5b73498b56_09665314',
+  'unifunc' => 'content_5e8d6af4437c98_01225405',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '590c09b77c14df32c9f3cda73ffbc1add8d56b1e' => 
     array (
       0 => 'C:\\xampp72\\htdocs\\foro\\application\\views\\principal.tpl',
-      1 => 1586188854,
+      1 => 1586323311,
       2 => 'file',
     ),
   ),
@@ -22,7 +22,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:template/footer.tpl' => 1,
   ),
 ),false)) {
-function content_5e8b5b73498b56_09665314 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5e8d6af4437c98_01225405 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_subTemplateRender("file:template/header.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 ?>
 
@@ -55,7 +55,8 @@ foreach ($_from as $_smarty_tpl->tpl_vars['publicacion']->value) {
 				</div>
 				<div class="imagenes publicacion">
 					<img src="<?php echo $_smarty_tpl->tpl_vars['publicacion']->value->imagenes;?>
-" class="imagen">
+" class="imagen" alt="<?php echo base_url();?>
+public/img/noImg.jpg">
 				</div>
 				<?php if (isset($_smarty_tpl->tpl_vars['perfil']->value) && $_smarty_tpl->tpl_vars['publicacion']->value->aprobada == "false") {?>
 					<br>
@@ -93,42 +94,48 @@ echo count($_smarty_tpl->tpl_vars['publicacion']->value->likes);
 					<?php } else { ?>
 						<textarea class="form-control espaciado" name="comentario" placeholder="Iniciá sesión para comentar" disabled=""></textarea>
 					<?php }?>
-					<?php if (count($_smarty_tpl->tpl_vars['publicacion']->value->comentarios) > 0) {?>
-						<div class="comentarios">
-							<h4 style="color: grey;" data-toggle="collapse" data-target="#comentarios<?php echo $_smarty_tpl->tpl_vars['publicacion']->value->_id;?>
+					<div class="comentarios">
+						<h4 style="color: grey;" data-toggle="collapse" data-target="#comentarios<?php echo $_smarty_tpl->tpl_vars['publicacion']->value->_id;?>
 " aria-expanded="true" aria-controls="comentarios<?php echo $_smarty_tpl->tpl_vars['publicacion']->value->_id;?>
 ">Comentarios</h4>
-							<div class="container collapse" id="comentarios<?php echo $_smarty_tpl->tpl_vars['publicacion']->value->_id;?>
+						<div class="container collapse" id="comentarios<?php echo $_smarty_tpl->tpl_vars['publicacion']->value->_id;?>
 " >
-							<hr>
-								
-								<?php
+						<hr>
+							<?php if (count($_smarty_tpl->tpl_vars['publicacion']->value->comentarios) != 0) {?>
+							<?php
 $_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['publicacion']->value->comentarios, 'comentario');
 if ($_from !== null) {
 foreach ($_from as $_smarty_tpl->tpl_vars['comentario']->value) {
 ?>
-									<div class="row">
-										<div class="col-md-12">
-											<span><?php echo $_smarty_tpl->tpl_vars['comentario']->value->comentario;?>
+								<div class="row">
+									<div class="col-md-12">
+										<span><?php echo $_smarty_tpl->tpl_vars['comentario']->value->comentario;?>
 </span>
-										</div>
-										<div class="col-md-12" style="font-size: 10px;">
-											<span><?php echo $_smarty_tpl->tpl_vars['comentario']->value->usuario;?>
+									</div>
+									<div class="col-md-12" style="font-size: 10px;">
+										<span><?php echo $_smarty_tpl->tpl_vars['comentario']->value->usuario;?>
 </span>
-											<span><?php echo $_smarty_tpl->tpl_vars['comentario']->value->fecha;?>
+										<span><?php echo $_smarty_tpl->tpl_vars['comentario']->value->fecha;?>
 </span>
-										</div>
-									</div>	
-									<hr>									
-								<?php
+									</div>
+								</div>	
+								<hr>									
+							<?php
 }
 }
 $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl);
 ?>
 
-							</div>
+							<?php } else { ?>
+								<div class="row" id="noComments<?php echo $_smarty_tpl->tpl_vars['publicacion']->value->_id;?>
+">
+									<div class="col-md-12">
+										<span>No hay comentarios</span>
+									</div>
+								</div>
+							<?php }?>
 						</div>
-					<?php }?>
+					</div>
 				</div>
 			</div>
 		</div>

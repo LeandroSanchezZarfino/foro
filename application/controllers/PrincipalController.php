@@ -4,6 +4,7 @@ class PrincipalController extends CI_Controller{
 	public function __construct(){
 		parent::__construct();
 		$this->load->model("Mongo_model");
+		$this->smarty->assign("publicacionCreada",false);
 		if(isset($this->session->usuario_id))$this->smarty->assign("session_id",$this->session->usuario_id);
 		if(isset($this->session->perfil))$this->smarty->assign("perfil",$this->session->perfil);
 	}
@@ -22,9 +23,14 @@ class PrincipalController extends CI_Controller{
 	}
 	public function busquedaPublicaciones(){
 		$busqueda = $this->input->get("parametro");
-		$publicaciones = $this->Mongo_model->select("publicaciones",array("aprobada"=>"true","titulo"=>$busqueda));
+		$publicaciones = $this->Mongo_model->select("publicaciones",array("aprobada"=>"true","titulo"=>new \MongoDB\BSON\Regex($busqueda)));
 		$this->smarty->assign("titulo","Busqueda de publicaciones");
 		$this->smarty->assign("publicaciones",$publicaciones);
 		$this->smarty->display("principal.tpl");	
+	}
+
+	public function publicacionCreada(){
+		$this->smarty->assign("publicacionCreada",true);
+		$this->index();
 	}
 }

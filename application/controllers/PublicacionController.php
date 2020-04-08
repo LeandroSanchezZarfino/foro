@@ -36,7 +36,7 @@ class PublicacionController extends CI_Controller{
 				$data["imagenes"] = $imagenes;
 			$this->Mongo_model->update("publicaciones",$data,array("_id"=>new MongoDB\BSON\ObjectID("$id")),false,true);
 		}
-		header('Location:'.base_url()); 
+		header('Location:'.base_url().'publicacionCreada'); 
 	}
 	public function validar(){
 		if($this->session->perfil == PERFIL_ADMIN){
@@ -52,9 +52,8 @@ class PublicacionController extends CI_Controller{
 		}
 	}
 	public function obtenerRutasImagenes(){
-		var_dump($_FILES);die;
 		try{
-			$target_dir = "public/img/";
+			$target_dir = "public/uploads/";
 			$target_file = $target_dir .uniqid(). basename($_FILES["imagenes"]["name"]);
 			$uploadOk = 1;
 			$imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));

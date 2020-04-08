@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.30, created on 2020-04-06 18:40:19
+/* Smarty version 3.1.30, created on 2020-04-08 08:11:00
   from "C:\xampp72\htdocs\foro\application\views\publicacion_modal.tpl" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.30',
-  'unifunc' => 'content_5e8b5b7381b902_18326289',
+  'unifunc' => 'content_5e8d6af48b1fd9_62751711',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '8436a16cef6632856ce5ba6c8d175a8e219f6345' => 
     array (
       0 => 'C:\\xampp72\\htdocs\\foro\\application\\views\\publicacion_modal.tpl',
-      1 => 1586145563,
+      1 => 1586321429,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5e8b5b7381b902_18326289 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5e8d6af48b1fd9_62751711 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
 <div class="modal fade" id="modalPublicacionForm" tabindex="-1" role="dialog" aria-hidden="true">
   <div class="modal-dialog" role="document">
@@ -67,31 +67,16 @@ abmPublicacion" method="post" enctype="multipart/form-data">
 
 
 
-
-<?php echo '<script'; ?>
+<?php if (isset($_smarty_tpl->tpl_vars['publicacionCreada']->value)) {?>
+  <?php if ($_smarty_tpl->tpl_vars['publicacionCreada']->value == true) {?>
+  <?php echo '<script'; ?>
  type="text/javascript">
-  $("#formPublicacion").submit(function( event ) {
-    event.preventDefault();
-    var form = $(this);
-    $.ajax({
-      type: "POST",
-      url: form.attr("action"),
-      data: form.serialize(),
-      success: function(data)
-      {
-        $("#modalPublicacionForm").modal("hide");
-        mostrarMensaje("Se envió la publicación a los administradores para su evaluación");
-      },
-      error:function(response){
-        try{
-          var respuesta = JSON.parse(response.responseText).message;
-          $("#text_error_registar").text(respuesta);
-        }catch{
-          $("#text_error_registar").text("Usuario existente, intente con otro");
-        }
-      }
-     });
-  });
-<?php echo '</script'; ?>
-><?php }
+    $(document).ready(function() {
+          mostrarMensaje("Se envió la publicación a los administradores para su evaluación");
+    });
+  <?php echo '</script'; ?>
+>
+  <?php }
+}
+}
 }

@@ -68,6 +68,7 @@ $route["rechazarPublicacion/(:any)"] = "PublicacionController/rechazar/$1";
 
 $route['enviarComentario'] = "PublicacionController/enviarComentario";
 $route['darLike'] = "PublicacionController/darLike";
+$route['publicacionCreada'] = "PrincipalController/publicacionCreada";
 
 
 

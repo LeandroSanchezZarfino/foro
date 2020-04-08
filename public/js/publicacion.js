@@ -34,12 +34,12 @@ $(document).ready(function() {
 	        url: $(this).attr("action"),
 	        data: form.serialize(), // serializes the form's elements.
 	        success: function(data) {
-                console.log(data);
                 var obj = JSON.parse(data);
                 var txt = '<div class="row"><div class="col-md-12"><span>'+obj.comentario+'</span></div><div class="col-md-12" style="font-size: 10px;">'
                             +'<span>'+obj.usuario+'</span><span>'+obj.fecha+'</span></div></div><hr>';
                 $("#comentarios"+id).append(txt);
 	        	$("textarea").val(""); 
+                $("#noComments"+id).hide();
 	        }
 	    });
 	});

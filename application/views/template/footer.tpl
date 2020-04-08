@@ -1,6 +1,6 @@
 </div>
 	<div class="footer">
-		<p>Leandro A. Sánchez Zarfino - Tel: 11 3192 0880 - leandro.sanchezzarfino@gmail.com</p>
+		<p><a href="{base_url()}public/cv.pdf">Leandro A. Sánchez Zarfino</a> - Tel: 11 3192 0880 - leandro.sanchezzarfino@gmail.com</p>
 	</div>
 
 </body>

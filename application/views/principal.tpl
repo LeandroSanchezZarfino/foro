@@ -19,7 +19,7 @@
 					{$publicacion->descripcion}
 				</div>
 				<div class="imagenes publicacion">
-					<img src="{$publicacion->imagenes}" class="imagen">
+					<img src="{$publicacion->imagenes}" class="imagen" alt="{base_url()}public/img/noImg.jpg">
 				</div>
 				{if isset($perfil) && $publicacion->aprobada == "false"}
 					<br>
@@ -47,27 +47,32 @@
 					{else}
 						<textarea class="form-control espaciado" name="comentario" placeholder="Iniciá sesión para comentar" disabled=""></textarea>
 					{/if}
-					{if count($publicacion->comentarios) > 0}
-						<div class="comentarios">
-							<h4 style="color: grey;" data-toggle="collapse" data-target="#comentarios{$publicacion->_id}" aria-expanded="true" aria-controls="comentarios{$publicacion->_id}">Comentarios</h4>
-							<div class="container collapse" id="comentarios{$publicacion->_id}" >
-							<hr>
-								
-								{foreach from=$publicacion->comentarios item=comentario}
-									<div class="row">
-										<div class="col-md-12">
-											<span>{$comentario->comentario}</span>
-										</div>
-										<div class="col-md-12" style="font-size: 10px;">
-											<span>{$comentario->usuario}</span>
-											<span>{$comentario->fecha}</span>
-										</div>
-									</div>	
-									<hr>									
-								{/foreach}
-							</div>
+					<div class="comentarios">
+						<h4 style="color: grey;" data-toggle="collapse" data-target="#comentarios{$publicacion->_id}" aria-expanded="true" aria-controls="comentarios{$publicacion->_id}">Comentarios</h4>
+						<div class="container collapse" id="comentarios{$publicacion->_id}" >
+						<hr>
+							{if count($publicacion->comentarios) != 0}
+							{foreach from=$publicacion->comentarios item=comentario}
+								<div class="row">
+									<div class="col-md-12">
+										<span>{$comentario->comentario}</span>
+									</div>
+									<div class="col-md-12" style="font-size: 10px;">
+										<span>{$comentario->usuario}</span>
+										<span>{$comentario->fecha}</span>
+									</div>
+								</div>	
+								<hr>									
+							{/foreach}
+							{else}
+								<div class="row" id="noComments{$publicacion->_id}">
+									<div class="col-md-12">
+										<span>No hay comentarios</span>
+									</div>
+								</div>
+							{/if}
 						</div>
-					{/if}
+					</div>
 				</div>
 			</div>
 		</div>

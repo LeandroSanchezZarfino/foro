@@ -42,28 +42,12 @@
 
 
 
-
-<script type="text/javascript">
-  $("#formPublicacion").submit(function( event ) {
-    event.preventDefault();
-    var form = $(this);
-    $.ajax({
-      type: "POST",
-      url: form.attr("action"),
-      data: form.serialize(),
-      success: function(data)
-      {
-        $("#modalPublicacionForm").modal("hide");
-        mostrarMensaje("Se envió la publicación a los administradores para su evaluación");
-      },
-      error:function(response){
-        try{
-          var respuesta = JSON.parse(response.responseText).message;
-          $("#text_error_registar").text(respuesta);
-        }catch{
-          $("#text_error_registar").text("Usuario existente, intente con otro");
-        }
-      }
-     });
-  });
-</script>
+{if isset($publicacionCreada)}
+  {if $publicacionCreada == true}
+  <script type="text/javascript">
+    $(document).ready(function() {
+          mostrarMensaje("Se envió la publicación a los administradores para su evaluación");
+    });
+  </script>
+  {/if}
+{/if}

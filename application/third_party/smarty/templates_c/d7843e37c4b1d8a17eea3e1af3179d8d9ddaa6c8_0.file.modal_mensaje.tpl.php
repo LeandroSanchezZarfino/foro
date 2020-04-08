@@ -1,11 +1,11 @@
 <?php
-/* Smarty version 3.1.30, created on 2020-04-06 18:40:19
+/* Smarty version 3.1.30, created on 2020-04-08 08:11:00
   from "C:\xampp72\htdocs\foro\application\views\modal_mensaje.tpl" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.30',
-  'unifunc' => 'content_5e8b5b7385e416_28663752',
+  'unifunc' => 'content_5e8d6af4920f09_33599417',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5e8b5b7385e416_28663752 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5e8d6af4920f09_33599417 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
 <div class="modal fade" id="modal_mensaje" tabindex="-1" role="dialog" aria-hidden="true">
   <div class="modal-dialog" role="document">
