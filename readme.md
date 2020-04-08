@@ -10,7 +10,7 @@
 2. Corremos el dump "script-inicial.sql" que se encuentra en la carpeta del repositorio
 3. La base de datos tiene un usuario admin registrado 
 > usuario: admin
-contraseña: admin
+> contraseña: admin
 
 - Instalación de Mongodb
 1. [Antes de descargar mongoDB hay que registrarse](https://www.mongodb.com/ "Antes de descargar mongoDB hay que registrarse")
@@ -18,8 +18,8 @@ contraseña: admin
 3. Levantamos el servicio ejecutando "mongod" en una consola
 4.  En otra consola ejecutamos
 > mongo 
-use "foro"
-db.createCollection("publicaciones")
+> use "foro"
+> db.createCollection("publicaciones")
 
 - Finalmente clonamos el repositorio en la carpeta donde instalamos el Xampp/htdocs
 
