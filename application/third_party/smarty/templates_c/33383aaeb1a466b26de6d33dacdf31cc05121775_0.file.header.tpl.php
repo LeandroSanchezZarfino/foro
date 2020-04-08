@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.30, created on 2020-04-08 08:11:00
+/* Smarty version 3.1.30, created on 2020-04-09 01:35:08
   from "C:\xampp72\htdocs\foro\application\views\template\header.tpl" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.30',
-  'unifunc' => 'content_5e8d6af46a5402_19494460',
+  'unifunc' => 'content_5e8e5fac022663_31409927',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '33383aaeb1a466b26de6d33dacdf31cc05121775' => 
     array (
       0 => 'C:\\xampp72\\htdocs\\foro\\application\\views\\template\\header.tpl',
-      1 => 1586325400,
+      1 => 1586379124,
       2 => 'file',
     ),
   ),
@@ -21,12 +21,12 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:template/includes.tpl' => 1,
   ),
 ),false)) {
-function content_5e8d6af46a5402_19494460 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5e8e5fac022663_31409927 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
 <!DOCTYPE html>
 <html>
 	<head>
-		<title></title>
+		<title>Foro de impresión 3D</title>
 		<?php $_smarty_tpl->_subTemplateRender("file:template/includes.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 ?>
 

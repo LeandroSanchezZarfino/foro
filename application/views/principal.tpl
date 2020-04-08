@@ -14,6 +14,12 @@
 							<a href="javascript:nuevaPublicacion('{$publicacion->_id}')" class="btn btn-warning inline" style="color: white;" data-toggle="tooltip" title="Editar mi publicación"><i class="fa fa-pencil"></i></a>
 						{/if} 
 					{/if}
+					{if isset($mostrar_estado)}
+					{if $mostrar_estado == true}
+						<br>
+						<span class="{$publicacion->aprobada}">{if $publicacion->aprobada == "true"}Aprobada{else}No aprobada{/if}</span>
+					{/if}
+					{/if}
 				</div>
 				<div class="descripcion">
 					{$publicacion->descripcion}
@@ -21,13 +27,15 @@
 				<div class="imagenes publicacion">
 					<img src="{$publicacion->imagenes}" class="imagen" alt="{base_url()}public/img/noImg.jpg">
 				</div>
-				{if isset($perfil) && $publicacion->aprobada == "false"}
+				{if isset($perfil)}
+				{if $perfil==1 && $publicacion->aprobada == "false"}
 					<br>
 					<div>
 						<a href="{base_url()}aceptarPublicacion/{$publicacion->_id}" class="btn btn-success"><i class="fa fa-check"></i></a>
 						<a href="{base_url()}rechazarPublicacion/{$publicacion->_id}" class="btn btn-danger"><i class="fa fa-times"></i></a>
 					</div>
 					<br>
+					{/if}
 				{/if}
 				<div class="comentarios">
 					{if isset($session_id)}
@@ -48,7 +56,7 @@
 						<textarea class="form-control espaciado" name="comentario" placeholder="Iniciá sesión para comentar" disabled=""></textarea>
 					{/if}
 					<div class="comentarios">
-						<h4 style="color: grey;" data-toggle="collapse" data-target="#comentarios{$publicacion->_id}" aria-expanded="true" aria-controls="comentarios{$publicacion->_id}">Comentarios</h4>
+						<h4 style="color: grey;cursor: pointer;" data-toggle="collapse" data-target="#comentarios{$publicacion->_id}" aria-expanded="true" aria-controls="comentarios{$publicacion->_id}">Comentarios <i class="fa fa-chevron-down"></i></h4>
 						<div class="container collapse" id="comentarios{$publicacion->_id}" >
 						<hr>
 							{if count($publicacion->comentarios) != 0}

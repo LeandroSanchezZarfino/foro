@@ -52,31 +52,24 @@ class PublicacionController extends CI_Controller{
 		}
 	}
 	public function obtenerRutasImagenes(){
-		try{
-			$target_dir = "public/uploads/";
-			$target_file = $target_dir .uniqid(). basename($_FILES["imagenes"]["name"]);
-			$uploadOk = 1;
-			$imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
-			// Check if image file is a actual image or fake image
-		    $check = getimagesize($_FILES["imagenes"]["tmp_name"]);
-		    if($check === false) {
-		        $uploadOk = 0;
+		$target_dir = "public/uploads/";
+		$target_file = $target_dir .uniqid(). basename($_FILES["imagenes"]["name"]);
+		$uploadOk = 1;
+		$imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
+		// Check if image file is a actual image or fake image
+		log_message("error",$imageFileType);
+		if(strpos(".jpg.png.jpeg.gif",$imageFileType) == false){
+		    $uploadOk = 0;
+		    log_message("error","Formato invalido");
+		}
+		if($uploadOk == 1) {
+		    if (move_uploaded_file($_FILES["imagenes"]["tmp_name"], $target_file)) {
+				log_message("error","Subido");
+		    	return $target_file;
+		    } else {
+		    	log_message("error","No se pudo subir");
+		    	return "";
 		    }
-		    if ($_FILES["imagenes"]["size"] > 5000000) {
-			    $uploadOk = 0;
-			}
-			if(strpos("jpg.png.jpeg.gif",$imageFileType) == false){
-			    $uploadOk = 0;
-			}
-			if($uploadOk == 1) {
-			    if (move_uploaded_file($_FILES["imagenes"]["tmp_name"], $target_file)) {
-			    	return $target_file;
-			    } else {
-			    	return "";
-			    }
-			}
-		}catch(Exception $e){
-			return "";
 		}
 	}
 

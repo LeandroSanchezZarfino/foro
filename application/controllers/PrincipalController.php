@@ -3,6 +3,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class PrincipalController extends CI_Controller{
 	public function __construct(){
 		parent::__construct();
+		$this->smarty->assign("mostrar_estado",false);
 		$this->load->model("Mongo_model");
 		$this->smarty->assign("publicacionCreada",false);
 		if(isset($this->session->usuario_id))$this->smarty->assign("session_id",$this->session->usuario_id);
@@ -16,9 +17,10 @@ class PrincipalController extends CI_Controller{
 		$this->smarty->display("principal.tpl");
 	}
 	public function misPublicaciones(){
-		$publicaciones = $this->Mongo_model->select("publicaciones",array("aprobada"=>"true","usuario"=>$this->session->usuario));
+		$publicaciones = $this->Mongo_model->select("publicaciones",array("usuario"=>$this->session->usuario));
 		$this->smarty->assign("titulo","Mis publicaciones");
 		$this->smarty->assign("publicaciones",$publicaciones);
+		$this->smarty->assign("mostrar_estado",true);
 		$this->smarty->display("principal.tpl");
 	}
 	public function busquedaPublicaciones(){

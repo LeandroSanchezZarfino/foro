@@ -77,3 +77,9 @@
 	display: inline-block;
 }
 
+.true{
+	color:#28a745;
+}
+.false{
+	color: #dc3545;
+}

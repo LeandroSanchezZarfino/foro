@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<title></title>
+		<title>Foro de impresión 3D</title>
 		{include file="template/includes.tpl"}
 	</head>
 	<body>

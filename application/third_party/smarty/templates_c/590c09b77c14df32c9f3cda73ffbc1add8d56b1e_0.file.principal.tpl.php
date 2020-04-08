@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.30, created on 2020-04-08 08:11:00
+/* Smarty version 3.1.30, created on 2020-04-09 01:35:07
   from "C:\xampp72\htdocs\foro\application\views\principal.tpl" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.30',
-  'unifunc' => 'content_5e8d6af4437c98_01225405',
+  'unifunc' => 'content_5e8e5fabb2e877_94867494',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '590c09b77c14df32c9f3cda73ffbc1add8d56b1e' => 
     array (
       0 => 'C:\\xampp72\\htdocs\\foro\\application\\views\\principal.tpl',
-      1 => 1586323311,
+      1 => 1586388666,
       2 => 'file',
     ),
   ),
@@ -22,7 +22,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:template/footer.tpl' => 1,
   ),
 ),false)) {
-function content_5e8d6af4437c98_01225405 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5e8e5fabb2e877_94867494 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_subTemplateRender("file:template/header.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 ?>
 
@@ -48,6 +48,13 @@ foreach ($_from as $_smarty_tpl->tpl_vars['publicacion']->value) {
 ')" class="btn btn-warning inline" style="color: white;" data-toggle="tooltip" title="Editar mi publicación"><i class="fa fa-pencil"></i></a>
 						<?php }?> 
 					<?php }?>
+					<?php if (isset($_smarty_tpl->tpl_vars['mostrar_estado']->value)) {?>
+					<?php if ($_smarty_tpl->tpl_vars['mostrar_estado']->value == true) {?>
+						<br>
+						<span class="<?php echo $_smarty_tpl->tpl_vars['publicacion']->value->aprobada;?>
+"><?php if ($_smarty_tpl->tpl_vars['publicacion']->value->aprobada == "true") {?>Aprobada<?php } else { ?>No aprobada<?php }?></span>
+					<?php }?>
+					<?php }?>
 				</div>
 				<div class="descripcion">
 					<?php echo $_smarty_tpl->tpl_vars['publicacion']->value->descripcion;?>
@@ -58,7 +65,8 @@ foreach ($_from as $_smarty_tpl->tpl_vars['publicacion']->value) {
 " class="imagen" alt="<?php echo base_url();?>
 public/img/noImg.jpg">
 				</div>
-				<?php if (isset($_smarty_tpl->tpl_vars['perfil']->value) && $_smarty_tpl->tpl_vars['publicacion']->value->aprobada == "false") {?>
+				<?php if (isset($_smarty_tpl->tpl_vars['perfil']->value)) {?>
+				<?php if ($_smarty_tpl->tpl_vars['perfil']->value == 1 && $_smarty_tpl->tpl_vars['publicacion']->value->aprobada == "false") {?>
 					<br>
 					<div>
 						<a href="<?php echo base_url();?>
@@ -69,6 +77,7 @@ rechazarPublicacion/<?php echo $_smarty_tpl->tpl_vars['publicacion']->value->_id
 " class="btn btn-danger"><i class="fa fa-times"></i></a>
 					</div>
 					<br>
+					<?php }?>
 				<?php }?>
 				<div class="comentarios">
 					<?php if (isset($_smarty_tpl->tpl_vars['session_id']->value)) {?>
@@ -95,9 +104,9 @@ echo count($_smarty_tpl->tpl_vars['publicacion']->value->likes);
 						<textarea class="form-control espaciado" name="comentario" placeholder="Iniciá sesión para comentar" disabled=""></textarea>
 					<?php }?>
 					<div class="comentarios">
-						<h4 style="color: grey;" data-toggle="collapse" data-target="#comentarios<?php echo $_smarty_tpl->tpl_vars['publicacion']->value->_id;?>
+						<h4 style="color: grey;cursor: pointer;" data-toggle="collapse" data-target="#comentarios<?php echo $_smarty_tpl->tpl_vars['publicacion']->value->_id;?>
 " aria-expanded="true" aria-controls="comentarios<?php echo $_smarty_tpl->tpl_vars['publicacion']->value->_id;?>
-">Comentarios</h4>
+">Comentarios <i class="fa fa-chevron-down"></i></h4>
 						<div class="container collapse" id="comentarios<?php echo $_smarty_tpl->tpl_vars['publicacion']->value->_id;?>
 " >
 						<hr>

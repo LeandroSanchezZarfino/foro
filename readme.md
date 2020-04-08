@@ -34,4 +34,3 @@ Observaciones:
 2. El js debería estar separado en archivos individuales y usualmente los "comprimo" para mayor eficiencia y seguridad en [esta página](https://obfuscator.io/ "esta página"). En este caso para una mayor facilidad de lectura de codigo el JS está incluido en el HTML.
 
 3. Debería existir un páginador en el caso de que el foro escale, a fines practicos tampoco fue considerado
-
