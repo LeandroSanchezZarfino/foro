@@ -17,9 +17,9 @@
 2. Una vez descargado e instalado hay que agregar la ruta a mongo al path del sistema.
 3. Levantamos el servicio ejecutando "mongod" en una consola
 4.  En otra consola ejecutamos
-> mongo 
-> use "foro"
-> db.createCollection("publicaciones")
+> - mongo 
+> - use "foro"
+> - db.createCollection("publicaciones")
 
 - Finalmente clonamos el repositorio en la carpeta donde instalamos el Xampp/htdocs
 
