@@ -20,6 +20,7 @@
 > - mongo 
 > - use "foro"
 > - db.createCollection("publicaciones")
+5. En caso de querer ver el sistema con publicaciones ya cargadas, en la carpeta scripts se encuentra el archivo export.json con algunas publicaciones de prueba
 
 - Finalmente clonamos el repositorio en la carpeta donde instalamos el Xampp/htdocs
 
